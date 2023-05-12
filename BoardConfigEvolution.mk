@@ -12,6 +12,13 @@ TARGET_KERNEL_CONFIG := cloudripper_gki_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/gs201/private/gs-google
 TARGET_NEEDS_DTBOIMAGE := true
 
+# *** Uses prebuilt kernel for now. ***
+TARGET_KERNEL_DIR := device/google/lynx-kernel
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(TARGET_KERNEL_DIR)/Image.lz4
+PRODUCT_COPY_FILES += \
+    $(TARGET_PREBUILT_KERNEL):kernel
+
 # Kernel modules
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := device/google/gs201/vendor_dlkm.modules.blocklist
 TARGET_KERNEL_EXT_MODULE_ROOT := kernel/google/gs201/private/google-modules
